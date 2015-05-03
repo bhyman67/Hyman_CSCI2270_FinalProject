@@ -4,8 +4,8 @@
  * Final Project
  * References:
  * -> http://www.cplusplus.com/reference/string/string/
- * Description: Function definitions for each of the methods in the 
- * matrixVectorOps class.  
+ * Description: Function definitions for each of the methods in the
+ * matrixVectorOps class.
 */
 #include <iostream>
 #include <string>
@@ -20,7 +20,7 @@ using namespace std;
 				////////////////////////////////
 //************************************************************************
 // The Constructor
-//	-> Input: BSTnode (but will be a BSTnode always equal to NULL) 
+//	-> Input: BSTnode (but will be a BSTnode always equal to NULL)
 //  -> output: none
 //	-> Description: When an instance of the matrixVectorOps class is
 //     declared, the constructor gets called and automatically sets the
@@ -54,7 +54,7 @@ void matrixVectorOps::deleteTree(BSTnode *root)
 		deleteTree(root->leftChild);
 		delete root;
 		deleteTree(root->rightChild);
-	}	
+	}
 }
 					////////////////////////
 					//   BST operations   //
@@ -65,7 +65,7 @@ void matrixVectorOps::deleteTree(BSTnode *root)
 //  -> output: none
 //	-> Description: Adds given BSTnode into BST. VECTOR VARIABLE NAMES
 //     NEED TO BE IN LOWER CASE AND MATRIX VARIABLE NAMES NEED TO BE
-//     UPPER CASEED. 
+//     UPPER CASEED.
 //************************************************************************
 void matrixVectorOps::addNode(BSTnode *node)
 {
@@ -85,7 +85,7 @@ void matrixVectorOps::addNode(BSTnode *node)
 				else
 				{
 					x = x->rightChild;
-				}			
+				}
 			}
 			else
 			{
@@ -96,9 +96,9 @@ void matrixVectorOps::addNode(BSTnode *node)
 				else
 				{
 					x = x->rightChild;
-				}			
+				}
 			}
-		}	
+		}
 		node->parent = y;
 		if(y == NULL)
 		{
@@ -113,7 +113,7 @@ void matrixVectorOps::addNode(BSTnode *node)
 			else
 			{
 				y->rightChild = node;
-			}		
+			}
 		}
 		else
 		{
@@ -124,7 +124,7 @@ void matrixVectorOps::addNode(BSTnode *node)
 			else
 			{
 				y->rightChild = node;
-			}	
+			}
 		}
 	}
 	else
@@ -141,7 +141,7 @@ void matrixVectorOps::addNode(BSTnode *node)
 				else
 				{
 					x = x->rightChild;
-				}			
+				}
 			}
 			else
 			{
@@ -152,9 +152,9 @@ void matrixVectorOps::addNode(BSTnode *node)
 				else
 				{
 					x = x->rightChild;
-				}			
+				}
 			}
-		}	
+		}
 		node->parent = y;
 		if(y == NULL)
 		{
@@ -169,7 +169,7 @@ void matrixVectorOps::addNode(BSTnode *node)
 			else
 			{
 				y->rightChild = node;
-			}		
+			}
 		}
 		else
 		{
@@ -180,8 +180,8 @@ void matrixVectorOps::addNode(BSTnode *node)
 			else
 			{
 				y->rightChild = node;
-			}	
-		}		
+			}
+		}
 	}
 }
 //************************************************************************
@@ -212,14 +212,14 @@ BSTnode *matrixVectorOps::BSTsearch(string nodeLabel)
 			{
 				foundNode = foundNode->rightChild;
 			}
-			
+
 		}
 		else
 		{
 			if(!nodeLabel.compare(foundNode->A.matrixName))
 			{
 				match = true;
-			}			
+			}
 			else if(keyCompare(nodeLabel, foundNode->A.matrixName))
 			{
 				foundNode = foundNode->leftChild;
@@ -227,17 +227,17 @@ BSTnode *matrixVectorOps::BSTsearch(string nodeLabel)
 			else
 			{
 				foundNode = foundNode->rightChild;
-			}			
+			}
 		}
 	}
-	return foundNode;			
+	return foundNode;
 }
 //************************************************************************
 // Print Inventory funct
 //	-> Input: BST root
 //  -> output: none
 //	-> Description: Prints out all of the BSTnodes (both the variable
-//     variable names and the actual matrcies and vectors themselves) 
+//     variable names and the actual matrcies and vectors themselves)
 //************************************************************************
 void matrixVectorOps::printInventory(BSTnode *root)
 {
@@ -251,7 +251,7 @@ void matrixVectorOps::printInventory(BSTnode *root)
 			for(unsigned int i = 0; i < root->b.vectorElmts.size(); i++)
 			{
 				cout << "   " << root->b.vectorElmts.at(i) << endl;
-			}			
+			}
 		}
 		else
 		{
@@ -259,16 +259,16 @@ void matrixVectorOps::printInventory(BSTnode *root)
 			cout << endl;
 			for(unsigned int j = 0; j < root->A.matrixElmts.size(); j++)
 			{
-				cout << "   "; 
+				cout << "   ";
 				for(unsigned int k = 0; k < root->A.matrixElmts.size(); k++)
 				{
 					cout << root->A.matrixElmts[j][k] << " ";
 				}
 				cout << endl;
-			}				
+			}
 		}
 		printInventory(root->rightChild);
-	}		
+	}
 }
 					///////////////////////////
 					//   Matrix-Vector ops   //
@@ -287,7 +287,7 @@ double matrixVectorOps::innerProduct(vector<double> a, vector<double> b)
 		for(unsigned int i = 0; i < a.size(); i++)
 		{
 			intReturn += ( a.at(i) * b.at(i) );
-		}			
+		}
 	}
 	else
 	{
@@ -297,9 +297,9 @@ double matrixVectorOps::innerProduct(vector<double> a, vector<double> b)
 }
 //************************************************************************
 // Matrix-Vector multiplication funct
-//	-> Input: A 2-dim vector, in other words a matrix, that was from the 
-//     input of an upper case matrix name that already exists in the BST 
-//     AND a vector that was from the input of a lower case vector name that 
+//	-> Input: A 2-dim vector, in other words a matrix, that was from the
+//     input of an upper case matrix name that already exists in the BST
+//     AND a vector that was from the input of a lower case vector name that
 //     already exists in the BST.
 //  -> output: the calculated vector solution of the matrix-vector product.
 //	-> Description: Calculates the product (which will be in the form of
@@ -329,22 +329,22 @@ vector<double> matrixVectorOps::matrixVectMult(vector<vector<double>> A, vector<
 }
 //************************************************************************
 // Linear System Solver using the CONJUGATE GRADIENT METHOD
-//	-> Input: A 2-dim vector, in other words a matrix, that was from the 
-//     input of an upper case matrix name that already exists in the BST 
-//     AND a vector that was from the input of a lower case vector name that 
+//	-> Input: A 2-dim vector, in other words a matrix, that was from the
+//     input of an upper case matrix name that already exists in the BST
+//     AND a vector that was from the input of a lower case vector name that
 //     already exists in the BST.
-//  -> output: the calculated vector solution of the linear system. 
+//  -> output: the calculated vector solution of the linear system.
 //	-> Description: This method would be most confusing to a user who
 //     is unfamiliar with numerical linear algebra. This is an algorithm
-//     used for solving linear systems that consist of symetric and 
-//	   positive-definte matrices. It is a popular method to use for 
+//     used for solving linear systems that consist of symetric and
+//	   positive-definte matrices. It is a popular method to use for
 //     solving linear systems that get derived from a finite difference
 //     approximation for solving a partial diffEq problems. In the case
-//     that the user is unfamiliar with these kinds of matrices, I have 
+//     that the user is unfamiliar with these kinds of matrices, I have
 //     listed a set of matrices to use for a linear system whose solution
 //     can be found using this method:
 //		           _      _          _       _
-//				  |  4  1  |        |  2  -1  |        
+//				  |  4  1  |        |  2  -1  |
 //			   	  |_ 1  3 _|        |_ -1  2 _|
 //                          _      _
 //                         |  3  2  |
@@ -352,35 +352,42 @@ vector<double> matrixVectorOps::matrixVectMult(vector<vector<double>> A, vector<
 //************************************************************************
 void matrixVectorOps::conjugateGradient(vector<vector<double>> A, vector<double> b)
 {
-	int i = 0;
-	double alpha;
-	double beta;
-	double oldDelta;
-	vector<double> q;
-	vector<double> x;
-	for(unsigned int j = 0; j < b.size(); j++)
+    if(A.size() == b.size())
+    {
+        int i = 0;
+        double alpha;
+        double beta;
+        double oldDelta;
+        vector<double> q;
+        vector<double> x;
+        for(unsigned int j = 0; j < b.size(); j++)
+        {
+            x.push_back(0);
+        }
+        vector<double> r = vectorDiff(b,matrixVectMult(A,x));
+        vector<double> v = r;
+        double delta = innerProduct(r,r);
+        while(i < 100 && innerProduct(v,v) > 0.1 && innerProduct(r,r) > 0.1)
+        {
+            q = matrixVectMult(A,v);
+            alpha = (delta) / (innerProduct(v,q));
+            x = vectorSum(x,vectorScale(alpha,v));
+            r = vectorDiff(r,vectorScale(alpha,q));
+            oldDelta = delta;
+            delta = innerProduct(r,r);
+            beta = delta/oldDelta;
+            v = vectorSum(r,vectorScale(beta,v));
+            i++;
+        }
+        cout << endl;
+        for(unsigned int k = 0; k < x.size(); k++)
+        {
+            cout << "   " << x.at(k) << endl;
+        }
+    }
+	else
 	{
-		x.push_back(0);
-	}
-	vector<double> r = vectorDiff(b,matrixVectMult(A,x));
-	vector<double> v = r;
-	double delta = innerProduct(r,r);
-	while(i < 100 && innerProduct(v,v) > 0.1 && innerProduct(r,r) > 0.1)
-	{
-		q = matrixVectMult(A,v);
-		alpha = (delta) / (innerProduct(v,q));
-		x = vectorSum(x,vectorScale(alpha,v));
-		r = vectorDiff(r,vectorScale(alpha,q));
-		oldDelta = delta;
-		delta = innerProduct(r,r);
-		beta = delta/oldDelta;
-		v = vectorSum(r,vectorScale(beta,v));
-		i++;
-	}
-	cout << endl;
-	for(unsigned int k = 0; k < x.size(); k++)
-	{
-		cout << "   " << x.at(k) << endl;
+		cout << "Dimensions don't agree." << endl;
 	}
 }
 					///////////////////////
@@ -393,7 +400,7 @@ void matrixVectorOps::conjugateGradient(vector<vector<double>> A, vector<double>
 //     else false.
 //	-> Description: This function is used for comparing the ASCII code of
 //     the variable names of the vectors and matricies for maintaing the
-//     BST property when adding them into the BST 
+//     BST property when adding them into the BST
 //************************************************************************
 bool matrixVectorOps::keyCompare(string one, string two)
 {
@@ -407,14 +414,14 @@ bool matrixVectorOps::keyCompare(string one, string two)
 	{
 		inequality = true;
 	}
-	return inequality;	
+	return inequality;
 }
 //************************************************************************
 // String to vector function
 //	-> Input: input string (from the user) for creating a vector
 //  -> output: the actual math vector (one dimensional c++ vector) that
 //     the user intended to input
-//	-> Description: takes the users string vector input and actually 
+//	-> Description: takes the users string vector input and actually
 //     turns it into a vector
 //************************************************************************
 vector<double> matrixVectorOps::stringToVector(string line)
@@ -427,19 +434,19 @@ vector<double> matrixVectorOps::stringToVector(string line)
 	int delimiter = line.find(",");
 	num = line.substr(0,delimiter);
 	numInt = stoi(num);
-	vectorReturn.push_back(numInt);	
+	vectorReturn.push_back(numInt);
 	bool EOL = false; //End Of Line
 	while(!EOL)
 	{
 		if(delimiter == lastCommaPos)
 		{
-			EOL = true;			
+			EOL = true;
 		}
 		oldDelimiter = delimiter+1;
 		delimiter = line.find(",",oldDelimiter);
 		num = line.substr(oldDelimiter, delimiter-oldDelimiter);
 		numInt = stoi(num);
-		vectorReturn.push_back(numInt);		
+		vectorReturn.push_back(numInt);
 	}
 	return vectorReturn;
 }
@@ -448,7 +455,7 @@ vector<double> matrixVectorOps::stringToVector(string line)
 //	-> Input: input string (from the user) for creating a matrix
 //  -> output: the actual matrix (two dimensional c++ vector) that
 //     the user intended to input
-//	-> Description: takes the users string matrix input and actually 
+//	-> Description: takes the users string matrix input and actually
 //     turns it into a matrix
 //************************************************************************
 vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
@@ -460,7 +467,7 @@ vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
 	int lastCommaPos;
 	int oldDelimiter;
 	vector<double> row;
-	vector<int> delimiterVector;		
+	vector<int> delimiterVector;
 	vector<vector<double>> vectorReturn;
 	//need to separate the rows
 	int amtOfRows = 0;
@@ -483,7 +490,7 @@ vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
 		delimiter = matrixRow.find(",");
 		string num = matrixRow.substr(0,delimiter);
 		numInt = stoi(num);
-		row.push_back(numInt);		
+		row.push_back(numInt);
 		EOL = false;
 		while(!EOL)
 		{
@@ -492,7 +499,7 @@ vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
 				EOL = true;
 			}
 			oldDelimiter = delimiter+1;
-			delimiter = matrixRow.find(",",oldDelimiter);		
+			delimiter = matrixRow.find(",",oldDelimiter);
 			string num = matrixRow.substr(oldDelimiter, delimiter-oldDelimiter );
 			numInt = stoi(num);
 			row.push_back(numInt);
@@ -519,7 +526,7 @@ vector<double> matrixVectorOps::vectorScale(double a, vector<double> b)
 	{
 		vectorReturn.push_back(a*b.at(i));
 	}
-	return vectorReturn;	
+	return vectorReturn;
 }
 //************************************************************************
 // Vector sum funct
@@ -566,5 +573,5 @@ void matrixVectorOps::vectorOutput(std::vector<double> output)
 	{
 		outputFile << output.at(i) << endl;
 	}
-	outputFile.close();	
+	outputFile.close();
 }
