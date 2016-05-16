@@ -21,10 +21,10 @@ using namespace std;
 //************************************************************************
 // The Constructor
 //	-> Input: BSTnode (but will be a BSTnode always equal to NULL)
-//  -> output: none
+//      -> output: none
 //	-> Description: When an instance of the matrixVectorOps class is
-//     declared, the constructor gets called and automatically sets the
-//     root of the BST to NULL
+//         declared, the constructor gets called and automatically sets the
+//         root of the BST to NULL
 //************************************************************************
 matrixVectorOps::matrixVectorOps(BSTnode *node)
 {
@@ -33,7 +33,7 @@ matrixVectorOps::matrixVectorOps(BSTnode *node)
 //************************************************************************
 // Root getter method
 //	-> Input: none
-//  -> output: the BSTnode in the BST that is the root
+//      -> output: the BSTnode in the BST that is the root
 //	-> Description: gets the BST root
 //************************************************************************
 BSTnode *matrixVectorOps::getRoot()
@@ -43,9 +43,9 @@ BSTnode *matrixVectorOps::getRoot()
 //************************************************************************
 // The Destructor
 //	-> Input: Root of the BST
-//  -> output: none
+//      -> output: none
 //	-> Description: deletes the BST for deallocating memeory and
-//     preventing memory leaks
+//         preventing memory leaks
 //************************************************************************
 void matrixVectorOps::deleteTree(BSTnode *root)
 {
@@ -62,10 +62,10 @@ void matrixVectorOps::deleteTree(BSTnode *root)
 //************************************************************************
 // Add node funct
 //	-> Input: BSTnode to be added into the BST
-//  -> output: none
+//      -> output: none
 //	-> Description: Adds given BSTnode into BST. VECTOR VARIABLE NAMES
-//     NEED TO BE IN LOWER CASE AND MATRIX VARIABLE NAMES NEED TO BE
-//     UPPER CASEED.
+//         NEED TO BE IN LOWER CASE AND MATRIX VARIABLE NAMES NEED TO BE
+//         UPPER CASEED.
 //************************************************************************
 void matrixVectorOps::addNode(BSTnode *node)
 {
@@ -187,8 +187,8 @@ void matrixVectorOps::addNode(BSTnode *node)
 //************************************************************************
 // BST search funct
 //	-> Input: name (in form of a string) of matrix or vector the user is
-//     searching for
-//  -> output: BSTnode of the matched matrix or vector
+//         searching for
+//      -> output: BSTnode of the matched matrix or vector
 //	-> Description: Searchs for the desired matrix or vector in the BST
 //************************************************************************
 BSTnode *matrixVectorOps::BSTsearch(string nodeLabel)
@@ -235,9 +235,9 @@ BSTnode *matrixVectorOps::BSTsearch(string nodeLabel)
 //************************************************************************
 // Print Inventory funct
 //	-> Input: BST root
-//  -> output: none
+//      -> output: none
 //	-> Description: Prints out all of the BSTnodes (both the variable
-//     variable names and the actual matrcies and vectors themselves)
+//         variable names and the actual matrcies and vectors themselves)
 //************************************************************************
 void matrixVectorOps::printInventory(BSTnode *root)
 {
@@ -276,7 +276,7 @@ void matrixVectorOps::printInventory(BSTnode *root)
 //************************************************************************
 // Inner product funct
 //	-> Input: two vectors for the function to take the dot product of.
-//  -> output: the inner product of the two vectors
+//      -> output: the inner product of the two vectors
 //	-> Description: Calcuates the inner product between two vectors
 //************************************************************************
 double matrixVectorOps::innerProduct(vector<double> a, vector<double> b)
@@ -298,12 +298,12 @@ double matrixVectorOps::innerProduct(vector<double> a, vector<double> b)
 //************************************************************************
 // Matrix-Vector multiplication funct
 //	-> Input: A 2-dim vector, in other words a matrix, that was from the
-//     input of an upper case matrix name that already exists in the BST
-//     AND a vector that was from the input of a lower case vector name that
-//     already exists in the BST.
-//  -> output: the calculated vector solution of the matrix-vector product.
+//         input of an upper case matrix name that already exists in the BST
+//         AND a vector that was from the input of a lower case vector name that
+//         already exists in the BST.
+//      -> output: the calculated vector solution of the matrix-vector product.
 //	-> Description: Calculates the product (which will be in the form of
-//     a vector) of a matrix and a vector.
+//         a vector) of a matrix and a vector.
 //************************************************************************
 vector<double> matrixVectorOps::matrixVectMult(vector<vector<double>> A, vector<double> b)
 {
@@ -330,25 +330,25 @@ vector<double> matrixVectorOps::matrixVectMult(vector<vector<double>> A, vector<
 //************************************************************************
 // Linear System Solver using the CONJUGATE GRADIENT METHOD
 //	-> Input: A 2-dim vector, in other words a matrix, that was from the
-//     input of an upper case matrix name that already exists in the BST
-//     AND a vector that was from the input of a lower case vector name that
-//     already exists in the BST.
-//  -> output: the calculated vector solution of the linear system.
+//         input of an upper case matrix name that already exists in the BST
+//         AND a vector that was from the input of a lower case vector name that
+//         already exists in the BST.
+//      -> output: the calculated vector solution of the linear system.
 //	-> Description: This method would be most confusing to a user who
-//     is unfamiliar with numerical linear algebra. This is an algorithm
-//     used for solving linear systems that consist of symetric and
+//         is unfamiliar with numerical linear algebra. This is an algorithm
+//         used for solving linear systems that consist of symetric and
 //	   positive-definte matrices. It is a popular method to use for
-//     solving linear systems that get derived from a finite difference
-//     approximation for solving a partial diffEq problems. In the case
-//     that the user is unfamiliar with these kinds of matrices, I have
-//     listed a set of matrices to use for a linear system whose solution
-//     can be found using this method:
+//         solving linear systems that get derived from a finite difference
+//         approximation for solving a partial diffEq problems. In the case
+//         that the user is unfamiliar with these kinds of matrices, I have
+//         listed a set of matrices to use for a linear system whose solution
+//         can be found using this method:
 //		           _      _          _       _
-//				  |  4  1  |        |  2  -1  |
-//			   	  |_ 1  3 _|        |_ -1  2 _|
-//                          _      _
-//                         |  3  2  |
-//                         |_ 2  6 _|
+//			  |  4  1  |        |  2  -1  |
+//		   	  |_ 1  3 _|        |_ -1  2 _|
+//                                 _      _
+//                                |  3  2  |
+//                                |_ 2  6 _|
 //************************************************************************
 void matrixVectorOps::conjugateGradient(vector<vector<double>> A, vector<double> b)
 {
@@ -396,11 +396,11 @@ void matrixVectorOps::conjugateGradient(vector<vector<double>> A, vector<double>
 //************************************************************************
 // key Compare funct
 //	-> Input: two string parameters
-//  -> output: true if the first string is "less than" the second,
-//     else false.
+//      -> output: true if the first string is "less than" the second,
+//         else false.
 //	-> Description: This function is used for comparing the ASCII code of
-//     the variable names of the vectors and matricies for maintaing the
-//     BST property when adding them into the BST
+//         the variable names of the vectors and matricies for maintaing the
+//         BST property when adding them into the BST
 //************************************************************************
 bool matrixVectorOps::keyCompare(string one, string two)
 {
@@ -419,10 +419,10 @@ bool matrixVectorOps::keyCompare(string one, string two)
 //************************************************************************
 // String to vector function
 //	-> Input: input string (from the user) for creating a vector
-//  -> output: the actual math vector (one dimensional c++ vector) that
-//     the user intended to input
+//      -> output: the actual math vector (one dimensional c++ vector) that
+//         the user intended to input
 //	-> Description: takes the users string vector input and actually
-//     turns it into a vector
+//         turns it into a vector
 //************************************************************************
 vector<double> matrixVectorOps::stringToVector(string line)
 {
@@ -453,10 +453,10 @@ vector<double> matrixVectorOps::stringToVector(string line)
 //************************************************************************
 // String to matrix function
 //	-> Input: input string (from the user) for creating a matrix
-//  -> output: the actual matrix (two dimensional c++ vector) that
-//     the user intended to input
+//      -> output: the actual matrix (two dimensional c++ vector) that
+//         the user intended to input
 //	-> Description: takes the users string matrix input and actually
-//     turns it into a matrix
+//         turns it into a matrix
 //************************************************************************
 vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
 {
@@ -516,7 +516,7 @@ vector<vector<double>> matrixVectorOps::stringToMatrix(string line)
 //************************************************************************
 // Vector scale funct
 //	-> Input: a scaler number (of type double) and a vector
-//  -> output: the scaled vector
+//      -> output: the scaled vector
 //	-> Description: scales a vector
 //************************************************************************
 vector<double> matrixVectorOps::vectorScale(double a, vector<double> b)
@@ -531,7 +531,7 @@ vector<double> matrixVectorOps::vectorScale(double a, vector<double> b)
 //************************************************************************
 // Vector sum funct
 //	-> Input: two vectors
-//  -> output: a vector
+//      -> output: a vector
 //	-> Description: adds two vectors
 //************************************************************************
 vector<double> matrixVectorOps::vectorSum(vector<double> a, vector<double> b)
@@ -546,7 +546,7 @@ vector<double> matrixVectorOps::vectorSum(vector<double> a, vector<double> b)
 //************************************************************************
 // Vector diff funct
 //	-> Input: two vectors
-//  -> output: a vector
+//      -> output: a vector
 //	-> Description: subtracts two vectors
 //************************************************************************
 vector<double> matrixVectorOps::vectorDiff(vector<double> a, vector<double> b)
@@ -561,9 +561,9 @@ vector<double> matrixVectorOps::vectorDiff(vector<double> a, vector<double> b)
 //************************************************************************
 // Vector output funct
 //	-> Input: a vector
-//  -> output: none
+//      -> output: none
 //	-> Description: for in case there is a need to output the vector
-//     (maybe for graphing reasons...)
+//         (maybe for graphing reasons...)
 //************************************************************************
 void matrixVectorOps::vectorOutput(std::vector<double> output)
 {
